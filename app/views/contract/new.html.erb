@@ -1,0 +1,18 @@
+<div class="contaract-form">
+
+<div class="form">
+<%= form_for(@contract,url:{action: 'create'} )do |f| %>
+   <p>お名前</p>
+   <%= f.text_field :name %>
+   <p>ご住所</p>
+   <%= f.text_field :address %>
+   <p>メールアドレス</p>
+   <%= f.email_field :e_mail %>
+   <p>最終図面</p>
+   <%= f.file_field :drawing %>
+   <p>内容の最終確認をお願いします</p>
+   <%= f.submit "契約書作成" %>
+<% end %>
+</div>
+
+</div>
