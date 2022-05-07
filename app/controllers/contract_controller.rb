@@ -10,8 +10,12 @@ class ContractController < ApplicationController
 
 
     def create
-        Contract.create(contracr_params)
-        redirect_to("/")
+        @contract=Contract.create(contracr_params)
+        if @contract.save
+            UserMailer.with(user: @contract).send_contract.deliver_later
+            redirect_to("/")
+
+        end
     end
 
     private
